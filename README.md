@@ -6,7 +6,7 @@ Reachability Engine for:
 
 RSS 2026
 
-#### [[Project Page]](https://trustworthyrobotics.github.io/diffreach_site/) [[Paper]]() [[Video]]()
+#### [[Project Page]](https://trustworthyrobotics.github.io/diffreach_site/) [[arXiv]](https://arxiv.org/abs/2605.25346) [[Video]](https://www.youtube.com/watch?v=E6zeKt26TcM)
 
 ---
 
