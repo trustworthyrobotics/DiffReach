@@ -1,0 +1,18 @@
+[project]
+name = "diffreach"
+version = "0.0.0"
+requires-python = "==3.12.*"
+dependencies = [
+    "immrax[cuda]",
+    "jax2onnx==0.10.1",
+    "jax-verify",
+    "jaxonnxruntime",
+]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+jax-verify = { git = "https://github.com/keyis2/jax_verify.git" }
+jaxonnxruntime = { git = "https://github.com/keyis2/jaxonnxruntime.git" }
+immrax = { git = "https://github.com/keyis2/immrax", rev = "diffreach" }

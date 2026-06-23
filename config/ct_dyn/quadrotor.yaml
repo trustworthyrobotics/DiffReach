@@ -1,0 +1,41 @@
+state_dim: 12
+action_dim: 0
+n_total_steps: 1000
+step_size: 0.005
+
+init_remainder: 1e-1
+frr_rounds: 10
+frr_stop_ratio: 0.95
+sr_window_size: 1000
+sim_n_samples: 64
+
+variable_names: [x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, x11, x12]
+dynamics: "models/dynamics/ct_dyn/quadrotor.py"
+
+initial_set:
+  - [-0.5, 0.5]
+  - [-0.5, 0.5]
+  - [-0.5, 0.5]
+  - [-0.5, 0.5]
+  - [-0.5, 0.5]
+  - [-0.5, 0.5]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+  - [0, 0]
+
+splits: {0: 8, 1: 8, 2: 8, 3: 2}
+
+output_dir: "output/ct_dyn/quadrotor"
+
+visualization:
+  vis_stride: 1
+  aggregate_partitions: true
+
+# constraints_unsafe: ["-x3 + 0.94", "x3 - 1.06"]
+
+# constraints_target: ["-x1 + 1", "x1 - 2"]
+
+

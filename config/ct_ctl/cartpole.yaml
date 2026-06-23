@@ -1,0 +1,40 @@
+state_dim: 4
+action_dim: 1
+n_total_steps: 200
+n_steps_per_control: 4
+step_size: 0.005
+
+init_remainder: 1e-5
+frr_rounds: 10
+frr_stop_ratio: 0.95
+sr_window_size: 1000
+sim_n_samples: 64
+
+variable_names: [x1, x2, x3, x4, u1]
+dynamics: "models/dynamics/ct_ctl/cartpole.py"
+controller: "models/controllers/ct_ctl/cartpole.onnx"
+# Optional reference input for controllers that expect [state, reference].
+# The shape of reference_seq should be (control_steps, reference_dim).
+# control_steps = round(n_total_steps / n_steps_per_control)
+# It does not apply for this cartpole example, so we set reference_dim to 0 and reference_seq to null.
+reference_dim: 0
+reference_seq: null
+# Sample reference_seq for control_steps = 2 and reference_dim = 3
+# reference_seq:
+#   - [0.0, 0.0, 0.0]  # reference for control step 1
+#   - [0.0, 0.0, 0.0]  # reference for control step 2
+
+initial_set:
+  - [-0.0375,  -0.03125]  # x1
+  - [-0.015625, -0.0125]  # x2
+  - [-0.00625,   0.0]     # x3
+  - [-0.007375, -0.00625] # x4
+  - [0.0, 0.0]            # u1 (fixed)
+
+splits: {0: 8, 1: 8, 2: 8, 3: 8}
+
+output_dir: "output/ct_ctl/cartpole"
+
+visualization:
+  vis_stride: 1
+  aggregate_partitions: true
